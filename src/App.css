@@ -1,42 +1,64 @@
 .App {
-  text-align: center;
-  background-color: #282c34;
+	text-align: center;
+	background-color: #282c34;
+	min-height: 100vh;
+	margin: auto;
+	padding-bottom: 5vh;
+	user-select: none;
+	font-family: 'Mono';
+}
+p {
+	font-size: 24px;
+	color: #CCA;
+	margin: 4px;
+}
+hr {
+	border: none;
+	border-bottom: 1px solid #484c58;
 }
 
-.MemoryCardContainer {
-  min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  width: 500px;
-  margin: auto;
+.counter {
+	margin: 0px;
+	font-size: 72px;
+	color: white;
+	padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.interactionButton {
+	display: block;
+	font-size: 28px;
+	margin: 4px auto;
+	background-color: transparent;
+	border-radius: 8px;
+	color: white;
+	padding: 8px;
+	border: 1px solid #484c58;
+	border-bottom: 3px solid #343841;
+	cursor: pointer;
+	width: min(450px, 100%);
+}
+.interactionButton:hover {
+	background-color: #FFF1;
+}
+.interactionButton:active {
+	transform: translateY(1px);
+	border-bottom: 1px solid #343841;
+	margin-block: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.upgradeContainer {
+	display: inline-block;
+	margin: 4px;
+	width: min(450px, 100%);
+	vertical-align: top;
 }
 
-.memoryCard {
-  width: 100px;
-  height: 100px;
-  margin: 4px;
-  display: inline-block;
-  background-color: #0003;
-  color: transparent;
-  font-size: 28px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: inset -10px -10px 8px #0002, 10px 10px 10px #00000010, inset 10px 10px 8px #8F7FFF04;
-  cursor: pointer;
+.strength {
+	color: #cb5555;
 }
-.memoryCard.shown {
-  color: white;
+.money {
+	color: #72d472;
+}
+.passive {
+	color: #d5c454;
 }
