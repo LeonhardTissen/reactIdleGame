@@ -53,11 +53,11 @@ hr {
 	vertical-align: top;
 }
 
-.strength {
-	color: #cb5555;
-}
 .money {
 	color: #72d472;
+}
+.moneyperclick {
+	color: #cb5555;
 }
 .passive {
 	color: #d5c454;

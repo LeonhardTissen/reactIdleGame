@@ -20,8 +20,8 @@ function Money(props) {
 	return <span className="money">{displayNum(props.count)}$</span>
 }
 
-function Strength(props) {
-	return <span className="strength">+{displayNum(props.count)}$/click</span>
+function MoneyPerClick(props) {
+	return <span className="moneyperclick">+{displayNum(props.count)}$/click</span>
 }
 
 function Passive(props) {
@@ -33,44 +33,44 @@ function ValueProposition(props) {
 }
 
 function UpgradeButton(props) {
-	const [upgradeStrength] = useState(props.amount);
+	const [upgradeAmount] = useState(props.amount);
 	const [upgradePrice, setUpgradePrice] = useState(props.price);
 
 	// Calculates how worth the upgrade is so you can see which one makes most sense to buy
 	const getValueProposition = () => {
-		return Math.floor(upgradePrice / upgradeStrength * 10) / 10
+		return Math.floor(upgradePrice / upgradeAmount * 10) / 10
 	}
 
   	return <button 
 		className="interactionButton" 
 		onClick={() => {
-			if (props.func(upgradePrice, upgradeStrength)) {
+			if (props.func(upgradePrice, upgradeAmount)) {
 				setUpgradePrice(Math.ceil(upgradePrice * 1.2))
 			}
 		}}>
-		Get <Strength count={upgradeStrength}/> for <Money count={upgradePrice}/>
+		Get <MoneyPerClick count={upgradeAmount}/> for <Money count={upgradePrice}/>
 		<br></br>
 		<ValueProposition count={getValueProposition()}/>
 	</button>
 }
 
 function UpgradePassiveButton(props) {
-	const [upgradeStrength] = useState(props.amount);
+	const [upgradeAmount] = useState(props.amount);
 	const [upgradePrice, setUpgradePrice] = useState(props.price);
 
 	// Calculates how worth the upgrade is so you can see which one makes most sense to buy
 	const getValueProposition = () => {
-		return Math.floor(upgradePrice / upgradeStrength * 10) / 10
+		return Math.floor(upgradePrice / upgradeAmount * 10) / 10
 	}
 
   	return <button 
 		className="interactionButton" 
 		onClick={() => {
-			if (props.func(upgradePrice, upgradeStrength)) {
+			if (props.func(upgradePrice, upgradeAmount)) {
 				setUpgradePrice(Math.ceil(upgradePrice * 1.2))
 			}
 		}}>
-		Get <Passive count={upgradeStrength}/> for <Money count={upgradePrice}/>
+		Get <Passive count={upgradeAmount}/> for <Money count={upgradePrice}/>
 		<br></br>
 		<ValueProposition count={getValueProposition()}/>
 	</button>
@@ -78,7 +78,7 @@ function UpgradePassiveButton(props) {
 
 function ClickerGame() {
  	const [money, setMoney] = useState(0);
-  	const [clickStrength, setClickStrength] = useState(1);
+  	const [moneyPerClick, setMoneyPerClick] = useState(1);
 	const [moneyPerSecond, setMoneyPerSound] = useState(0);
 
 	// Passive income 60 times a second
@@ -92,14 +92,14 @@ function ClickerGame() {
 
 	// Main click button that increases the money
 	const increaseMoney = () => {
-		setMoney(money + parseInt(clickStrength));
+		setMoney(money + parseInt(moneyPerClick));
 	};
 
 	// Function that decreases balance by "price" and increases click strength by "amount", returns true if bought
 	const buyClickerUpgrade = (price, amount) => {
 		if (money >= price) {
 			setMoney(money - price);
-			setClickStrength(clickStrength + parseInt(amount));
+			setMoneyPerClick(moneyPerClick + parseInt(amount));
 			return true;
 		} else {
 			return false;
@@ -119,7 +119,7 @@ function ClickerGame() {
 
 	return <div>
 		<h1 className="counter money">{displayNum(money, true)}$</h1>
-		<button className="interactionButton" onClick={increaseMoney}>Increase Money by <Money count={clickStrength}/></button>
+		<button className="interactionButton" onClick={increaseMoney}>Increase Money by <Money count={moneyPerClick}/></button>
 		<p><Passive count={moneyPerSecond}/> automatically</p>
 		<hr/>
 		<div class="upgradeContainer">
