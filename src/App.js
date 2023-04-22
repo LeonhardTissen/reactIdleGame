@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 
-// Function that returns a number with 2 digits after 0 every time
+// Function that returns a number with 2 digits after . every time
 function displayNum(num, force) {
 	let rounded = (Math.floor(parseFloat(num) * 100) / 100).toString()
 	const dot_index = rounded.indexOf('.');
@@ -76,7 +76,7 @@ function UpgradePassiveButton(props) {
 	</button>
 }
 
-function Counter() {
+function ClickerGame() {
  	const [money, setMoney] = useState(0);
   	const [clickStrength, setClickStrength] = useState(1);
 	const [moneyPerSecond, setMoneyPerSound] = useState(0);
@@ -140,7 +140,7 @@ function Counter() {
 function App() {
 	return (
 		<div className="App">
-			<Counter/>
+			<ClickerGame/>
 		</div>
 	);
 }
