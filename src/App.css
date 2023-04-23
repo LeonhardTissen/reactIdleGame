@@ -47,10 +47,19 @@ hr {
 	width: min(450px, 100%);
 	transition: opacity 0.3s ease-out, background-color 0.3s ease-out, filter 0.3s ease-out;
 }
-.interactionButton[affordable="no"] {
+.interactionButton[type="notvisible"] {
+	opacity: 0.5;
+	background-color: #0001;
+	filter: grayscale(1);
+	color: transparent;
+}
+.interactionButton[type="notvisible"] * {
+	opacity: 0;
+}
+.interactionButton[type="notaffordable"] {
 	opacity: 0.5;
 	background-color: #0004;
-	filter: grayscale(0.5)
+	filter: grayscale(0.5);
 }
 .interactionButton:hover {
 	background-color: #FFF1;

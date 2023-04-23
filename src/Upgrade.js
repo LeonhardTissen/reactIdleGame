@@ -13,10 +13,14 @@ function UpgradeButton(props) {
 		return Math.floor(upgradePrice / upgradeAmount * 10) / 10
 	};
 
-	let affordable = 'no';
+	let type;
 	if (props.currency >= parseInt(upgradePrice)) {
-		affordable = 'yes';
-	};
+		type = 'affordable';
+	} else if (props.currency * 10 >= parseInt(upgradePrice)) {
+		type = 'notaffordable'
+	} else {
+		type = 'notvisible'
+	}
 
 	let buy_type;
 	if (props.item === 'click') {
@@ -27,7 +31,7 @@ function UpgradeButton(props) {
 
   	return <button 
 		className="interactionButton"
-		affordable={affordable}
+		type={type}
 		onClick={() => {
 			if (props.func(upgradePrice, upgradeAmount)) {
 				setUpgradePrice(Math.ceil(upgradePrice * 1.2))
