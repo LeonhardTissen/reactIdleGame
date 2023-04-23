@@ -56,12 +56,18 @@ function ClickerGame() {
             <UpgradeButton func={buyClickerUpgrade} amount="5" price="100"/>
             <UpgradeButton func={buyClickerUpgrade} amount="15" price="1000"/>
             <UpgradeButton func={buyClickerUpgrade} amount="50" price="5000"/>
+            <UpgradeButton func={buyClickerUpgrade} amount="200" price="25000"/>
+            <UpgradeButton func={buyClickerUpgrade} amount="800" price="125000"/>
+            <UpgradeButton func={buyClickerUpgrade} amount="5000" price="1000000"/>
         </div>
         <div className="upgradeContainer">
             <UpgradePassiveButton func={buyPassiveUpgrade} amount="2" price="10"/>
             <UpgradePassiveButton func={buyPassiveUpgrade} amount="10" price="100"/>
             <UpgradePassiveButton func={buyPassiveUpgrade} amount="50" price="1000"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} amount="300" price="5000"/>
+            <UpgradePassiveButton func={buyPassiveUpgrade} amount="300" price="7000"/>
+            <UpgradePassiveButton func={buyPassiveUpgrade} amount="2000" price="50000"/>
+            <UpgradePassiveButton func={buyPassiveUpgrade} amount="10000" price="300000"/>
+            <UpgradePassiveButton func={buyPassiveUpgrade} amount="50000" price="2000000"/>
         </div>
     </div>
 }
