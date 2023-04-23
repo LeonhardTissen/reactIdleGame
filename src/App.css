@@ -27,6 +27,12 @@ hr {
 	padding: 20px;
 }
 
+.upgradeContainer {
+	display: inline-block;
+	margin: 4px;
+	width: min(450px, 90%);
+	vertical-align: top;
+}
 .interactionButton {
 	display: block;
 	font-size: 28px;
@@ -39,6 +45,11 @@ hr {
 	border-bottom: 3px solid #343841;
 	cursor: pointer;
 	width: min(450px, 100%);
+	transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
+}
+.interactionButton[affordable="no"] {
+	opacity: 0.5;
+	background-color: #0004;
 }
 .interactionButton:hover {
 	background-color: #FFF1;
@@ -47,13 +58,6 @@ hr {
 	transform: translateY(1px);
 	border-bottom: 1px solid #343841;
 	margin-block: 5px;
-}
-
-.upgradeContainer {
-	display: inline-block;
-	margin: 4px;
-	width: min(450px, 100%);
-	vertical-align: top;
 }
 
 .money {

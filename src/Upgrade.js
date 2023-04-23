@@ -10,10 +10,16 @@ function UpgradeButton(props) {
 	// Calculates how worth the upgrade is so you can see which one makes most sense to buy
 	const getValueProposition = () => {
 		return Math.floor(upgradePrice / upgradeAmount * 10) / 10
-	}
+	};
+
+	let affordable = 'no';
+	if (props.currency >= parseInt(upgradePrice)) {
+		affordable = 'yes';
+	};
 
   	return <button 
-		className="interactionButton" 
+		className="interactionButton"
+		affordable={affordable}
 		onClick={() => {
 			if (props.func(upgradePrice, upgradeAmount)) {
 				setUpgradePrice(Math.ceil(upgradePrice * 1.2))
