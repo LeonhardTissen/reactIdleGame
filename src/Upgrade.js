@@ -1,7 +1,8 @@
 import { useState } from "react";
-import MoneyPerClick from "./MoneyPerClick";
 import Money from "./Span";
+import MoneyPerClick from "./MoneyPerClick";
 import ValueProposition from "./ValueProposition";
+import Passive from "./Passive";
 
 function UpgradeButton(props) {
 	const [upgradeAmount] = useState(props.amount);
@@ -17,6 +18,13 @@ function UpgradeButton(props) {
 		affordable = 'yes';
 	};
 
+	let buy_type;
+	if (props.item === 'click') {
+		buy_type = <MoneyPerClick count={upgradeAmount}/>
+	} else {
+		buy_type = <Passive count={upgradeAmount}/>
+	}
+
   	return <button 
 		className="interactionButton"
 		affordable={affordable}
@@ -25,7 +33,7 @@ function UpgradeButton(props) {
 				setUpgradePrice(Math.ceil(upgradePrice * 1.2))
 			}
 		}}>
-		Get <MoneyPerClick count={upgradeAmount}/> for <Money count={upgradePrice}/>
+		Get {buy_type} for <Money count={upgradePrice}/>
 		<br></br>
 		<ValueProposition count={getValueProposition()}/>
 	</button>

@@ -3,7 +3,6 @@ import { displayNum } from './general';
 import Passive from "./Passive";
 import Money from './Span';
 import UpgradeButton from "./Upgrade";
-import UpgradePassiveButton from "./UpgradePassive";
 
 function ClickerGame() {
     const [money, setMoney] = useState(0);
@@ -55,22 +54,22 @@ function ClickerGame() {
         <p><Passive count={moneyPerSecond}/> automatically</p>
         <hr/>
         <div className="upgradeContainer">
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="1" price="10"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="5" price="100"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="15" price="1000"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="50" price="5000"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="200" price="25000"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="800" price="125000"/>
-            <UpgradeButton func={buyClickerUpgrade} currency={money} amount="5000" price="1000000"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="1" price="10"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="5" price="100"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="15" price="1000"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="50" price="5000"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="200" price="25000"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="800" price="125000"/>
+            <UpgradeButton item="click" func={buyClickerUpgrade} currency={money} amount="5000" price="1000000"/>
         </div>
         <div className="upgradeContainer">
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="2" price="10"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="10" price="100"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="50" price="1000"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="300" price="7000"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="2000" price="50000"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="10000" price="300000"/>
-            <UpgradePassiveButton func={buyPassiveUpgrade} currency={money} amount="50000" price="2000000"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="2" price="10"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="10" price="100"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="50" price="1000"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="300" price="7000"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="2000" price="50000"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="10000" price="300000"/>
+            <UpgradeButton item="passive" func={buyPassiveUpgrade} currency={money} amount="50000" price="2000000"/>
         </div>
     </div>
 }
